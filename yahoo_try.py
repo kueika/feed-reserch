@@ -17,5 +17,10 @@ for entry in yahooshopping.entries:
   response = requests.get(link)
   response.encoding = response.apparent_encoding
   bs = BeautifulSoup(response.text,'html.parser')
-  index = bs.find("p",attrs={"class","elItemCommentTitle"})
-  lines = index.fin
+  # index = bs.find("p",attrs={"class","elItemCommentTitle"})
+  # lines = index.fin
+  comment_tags = bs.select(".elItemCommentText")
+  for elem in comment_tags:
+    print(elem)
+    print(type(elem))
+  print("")
