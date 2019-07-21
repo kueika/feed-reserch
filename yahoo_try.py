@@ -10,7 +10,10 @@ url = 'https://shopping.yahoo.co.jp/rss?p={}&tab_ex=commerce&oq=&pf=&pt=&area=07
 
 yahooshopping = feedparser.parse(url)
 
+sentence =""
+
 for entry in yahooshopping.entries:
+  sentence =""
   title = entry.title
   link  = entry.link
   print(title)
@@ -21,6 +24,9 @@ for entry in yahooshopping.entries:
   # lines = index.fin
   comment_tags = bs.select(".elItemCommentText")
   for elem in comment_tags:
-    print(elem)
-    print(type(elem))
+    print(elem.text)
+    sentence+=elem.text
+  print("文相；" + sentence)
   print("")
+
+
